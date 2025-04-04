@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "Digital-7";
+  src: url("./fonts/digital-7.woff2") format("woff2"),
+    url("./fonts/digital-7.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Digital-7", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.container {
+  height: 330px;
+  width: 530px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b0e0e6;
+  border-radius: 50px;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.inner-container {
+  height: 300px;
+  width: 500px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.mode-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-right: 40px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.circle {
+  height: 60px;
+  width: 60px;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle img {
+  cursor: pointer;
+}
+
+span {
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 40px;
+  font-size: 50px;
+}
+
+hr {
+  border: 1px solid black;
+  margin-top: 30px;
+}
+
+.info {
+  display: flex;
+}
+
+#dayDisplay {
+  padding-top: 40px;
+  padding-left: 40px;
+  font-size: 30px;
+}
+
+#dateDisplay {
+  padding-top: 40px;
+  font-size: 30px;
+  padding-left: 30px;
+}
+
+#time {
+  font-size: 75px;
+  padding-left: 40px;
+  margin-top: 10px;
+}
+
+#toggleMode {
+  background-color: rgb(34, 33, 33);
+}
+
+#modeIcon {
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
