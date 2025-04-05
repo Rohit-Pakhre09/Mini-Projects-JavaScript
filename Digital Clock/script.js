@@ -1,25 +1,33 @@
-function time() {
-  let time = document.getElementById("time");
-  let dayDisplay = document.getElementById("dayDisplay");
-  let dateDisplay = document.getElementById("dateDisplay");
+function clock() {
+  let hours = document.getElementById("hrs");
+  let minutes = document.getElementById("min");
+  let seconds = document.getElementById("sec");
+  let amPM = document.getElementById("amPm");
+  let today = document.getElementById("day");
+  let monthYear = document.getElementById("date_month_year");
 
   const now = new Date();
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  let seconds = now.getSeconds();
-  let amPm = hours >= 12 ? "PM" : "AM";
+  let hrs = now.getHours();
+  let min = now.getMinutes();
+  let sec = now.getSeconds();
+  let amPm = hrs >= 12 ? "PM" : "AM";
 
-  if (hours == 0) {
-    hours = 12;
-  } else if (hours > 12) {
-    hours = hours - 12;
+  if (hrs == 0) {
+    hrs = 12;
+  } else if (hrs > 12) {
+    hrs = hrs - 12;
   }
 
-  hours = hours < 10 ? "0" + hours : hours;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  seconds = seconds < 10 ? "0" + seconds : seconds;
+  hrs = hrs < 10 ? "0" + hrs : hrs;
+  min = min < 10 ? "0" + min : min;
+  sec = sec < 10 ? "0" + sec : sec;
 
-  const dayEl = [
+  hours.innerText = hrs;
+  minutes.innerText = min;
+  seconds.innerText = sec;
+  amPM.innerText = amPm;
+
+  const day = [
     "SUNDAY",
     "MONDAY",
     "TUESDAY",
@@ -28,7 +36,7 @@ function time() {
     "FRIDAY",
     "SATURDAY",
   ];
-  const monthEl = [
+  const month = [
     "JANUARY",
     "FEBRUARY",
     "MARCH",
@@ -43,33 +51,14 @@ function time() {
     "DECEMBER",
   ];
 
-  let dayName = dayEl[now.getDay()];
-  let date = now.getDate();
-  let month = monthEl[now.getMonth()];
-  let year = now.getFullYear();
+  let dayName = day[now.getDay()];
+  let dateNumber = now.getDate();
+  let monthName = month[now.getMonth()];
+  let yearNumber = now.getFullYear();
 
-  time.innerText = `${hours} : ${minutes} : ${seconds} ${amPm}`;
-  dayDisplay.innerText = `${dayName}`;
-  dateDisplay.innerText = `${month} ${date}, ${year}`;
+  today.innerText = dayName;
+  monthYear.innerText = `${dateNumber} ${monthName}, ${yearNumber}`;
 }
 
-setInterval(time, 1000);
-time();
-
-const toggleMode = document.getElementById("toggleMode");
-const modeIcon = document.getElementById("modeIcon");
-
-toggleMode.addEventListener("click", () => {
-  const currentBg = getComputedStyle(document.body).backgroundColor;
-
-  if (currentBg === "rgb(255, 255, 255)") {
-    document.body.style.backgroundColor = "rgb(34, 33, 33)";
-    modeIcon.src =
-      "https://img.icons8.com/?size=100&id=11378&format=png&color=FFFFFF";
-  } else {
-    document.body.style.backgroundColor = "rgb(255, 255, 255)";
-    modeIcon.src =
-      "https://img.icons8.com/?size=100&id=9313&format=png&color=FFFFFF";
-    toggleMode.style.backgroundColor = "rgb(34, 33, 33)";
-  }
-});
+setInterval(clock, 1000);
+clock();
